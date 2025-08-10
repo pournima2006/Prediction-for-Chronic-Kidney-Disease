@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CKD Prediction Form</title>
+<style>
+  /* Google Font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1732046801426-f32529468176?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #333;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+  /* Form container */
+
+.form-container {
+  background: rgba(255, 255, 255, 0.85); /* white with 85% opacity */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 30px 40px 40px 40px;
+  max-width: 480px;
+  width: 100%;
+  backdrop-filter: blur(10px); /* Optional: adds a nice blur effect behind container */
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+}
+
+
+
+  /* Form title */
+  .form-container h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #4a3f7a;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  /* Input group */
+  .input-group {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  /* Floating label styles */
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 14px 16px 14px 16px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9fb;
+    transition: border-color 0.3s ease;
+  }
+
+  .input-group input:focus,
+  .input-group select:focus {
+    outline: none;
+    border-color: #764ba2;
+    background: #fff;
+  }
+
+  /* Labels */
+  .input-group label {
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    color: #999;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: white;
+    padding: 0 6px;
+    border-radius: 4px;
+  }
+
+  /* Move label up on focus or if input not empty */
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label,
+  .input-group select:focus + label,
+  .input-group select:not([value=""]) + label {
+    top: -8px;
+    left: 12px;
+    font-size: 0.8rem;
+    color: #764ba2;
+    font-weight: 600;
+  }
+
+  /* Submit button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: #764ba2;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(118,75,162,0.3);
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: #5a358f;
+    box-shadow: 0 10px 20px rgba(90,53,143,0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 520px) {
+    .form-container {
+      padding: 25px 20px 30px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>CKD Prediction Form</h2>
+  <form action="/predict" method="POST" id="ckd-form" autocomplete="off">
+
+    <div class="input-group">
+      <input type="number" step="any" name="blood_urea" id="blood_urea" placeholder=" " required />
+      <label for="blood_urea">Blood Urea (numeric)</label>
+    </div>
+
+    <div class="input-group">
+      <input type="number" step="any" name="blood_glucose_random" id="blood_glucose_random" placeholder=" " required />
+      <label for="blood_glucose_random">Blood Glucose Random (numeric)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="anemia" id="anemia" required>
+        <option value="" disabled selected hidden></option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <label for="anemia">Anemia (yes/no)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="coronary_artery_disease" id="coronary_artery_disease" required>
+        <option value="" disabled selected hidden></option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <label for="coronary_artery_disease">Coronary Artery Disease (yes/no)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="pus_cell" id="pus_cell" required>
+        <option value="" disabled selected hidden></option>
+        <option value="normal">Normal</option>
+        <option value="abnormal">Abnormal</option>
+      </select>
+      <label for="pus_cell">Pus Cell (normal/abnormal)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="red_blood_cell" id="red_blood_cell" required>
+        <option value="" disabled selected hidden></option>
+        <option value="normal">Normal</option>
+        <option value="abnormal">Abnormal</option>
+      </select>
+      <label for="red_blood_cell">Red Blood Cell (normal/abnormal)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="diabetes_mellitus" id="diabetes_mellitus" required>
+        <option value="" disabled selected hidden></option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <label for="diabetes_mellitus">Diabetes Mellitus (yes/no)</label>
+    </div>
+
+    <div class="input-group">
+      <select name="pedal_edema" id="pedal_edema" required>
+        <option value="" disabled selected hidden></option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <label for="pedal_edema">Pedal Edema (yes/no)</label>
+    </div>
+
+    <button type="submit">Predict CKD</button>
+  </form>
+</div>
+
+</body>
+</html>

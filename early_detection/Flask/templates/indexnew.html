@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CKD Prediction - Form 2</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    label {
+      font-weight: 600;
+    }
+    .btn-predict {
+      border-radius: 50px;
+      font-weight: 600;
+      padding: 10px 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-card">
+  <h2 class="text-center mb-4">🩺 Alternative Input Form</h2>
+  <form action="/predict" method="post" class="row g-3">
+
+    <div class="col-md-6">
+      <label>Age</label>
+      <input type="number" class="form-control" name="age" required>
+    </div>
+
+    <div class="col-md-6">
+      <label>Hemoglobin</label>
+      <input type="number" step="any" class="form-control" name="hemoglobin" required>
+    </div>
+
+    <div class="col-md-6">
+      <label>Serum Creatinine</label>
+      <input type="number" step="any" class="form-control" name="serum_creatinine" required>
+    </div>
+
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-success btn-lg btn-predict">Predict</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

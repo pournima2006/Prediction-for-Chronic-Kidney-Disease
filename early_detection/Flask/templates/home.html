@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to CKD Prediction</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://plus.unsplash.com/premium_photo-1692655671809-8aad7177cd67?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      position: relative;
+      padding: 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.75);
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 35px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #4a3f7a;
+      margin-bottom: 20px;
+      font-size: 2.8rem;
+      letter-spacing: 1.2px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    a.button {
+      display: inline-block;
+      background: #764ba2;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(118, 75, 162, 0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #5a358f;
+      box-shadow: 0 10px 20px rgba(90, 53, 143, 0.6);
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to CKD Early Detection</h1>
+    <p>Predict Chronic Kidney Disease quickly and easily using our AI-powered model. Provide your basic health information and get instant results.</p>
+    <a href="/form1" class="button">Start Prediction</a>
+  </div>
+</body>
+</html>
