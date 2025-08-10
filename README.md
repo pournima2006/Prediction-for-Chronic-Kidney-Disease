@@ -12,6 +12,15 @@ A web application that uses machine learning to predict Chronic Kidney Disease (
 - Preprocessing of numeric and categorical data with imputers and encoders.
 - Responsive and modern UI design.
 
+
+- User-friendly web interface for inputting health parameters.  
+  ![Prediction Form](homepage.jpg)
+
+- Machine learning model to predict CKD risk.  
+  ![Model Architecture](ckdForm.jpg)
+
+- Displays prediction result with probability score.  
+  ![Prediction Result](predictionResult.jpg)
 ---
 
 ## Getting Started
